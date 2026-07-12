@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Generated blog output (rendered from content/blog/*.md by scripts/build_blog.js)
+blog/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log

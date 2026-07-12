@@ -1,0 +1,54 @@
+backend:
+  name: github
+  repo: your-github-user/houston-home-tech-help   # CHANGE to your owner/repo before use
+  branch: main
+  base_url: https://your-sveltia-cms-auth-worker.workers.dev   # CHANGE: your sveltia-cms-auth Cloudflare Worker URL
+
+publish_mode: editorial_workflow   # Draft → In review → Ready (the human gate before anything goes live)
+site_url: https://houstonhometechhelp.com
+display_url: https://houstonhometechhelp.com
+
+media_folder: "assets/blog"
+public_folder: "/assets/blog"
+
+collections:
+  - name: blog
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{fields.slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: "Title", widget: string }
+      - name: slug
+        label: "Slug (URL)"
+        widget: string
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "lowercase letters, numbers and hyphens only"]
+      - name: category
+        label: "Category"
+        widget: select
+        options: ["Getting Started", "Wi-Fi & Home Network", "Learning Apps", "Staying Safe Online", "Accessibility"]
+      - { name: date, label: "Publish date", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { name: updated, label: "Last updated", widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { name: excerpt, label: "Excerpt (short summary)", widget: text }
+      - { name: meta_title, label: "SEO title (optional)", widget: string, required: false }
+      - { name: meta_description, label: "SEO meta description (optional)", widget: text, required: false }
+      - name: primary_practice_area
+        label: "Primary service (internal link)"
+        widget: select
+        options:
+          - { label: "Device Setup", value: "/device-setup/" }
+          - { label: "Home Network & Wi-Fi", value: "/home-network-wifi/" }
+          - { label: "Tech Lessons", value: "/tech-lessons/" }
+          - { label: "Accessibility Setup", value: "/accessibility-setup/" }
+          - { label: "Remote Support", value: "/remote-support/" }
+      - { name: og_image, label: "Social share image (optional)", widget: image, required: false }
+      - { name: draft, label: "Keep hidden (draft)", widget: boolean, default: true, required: false }
+      - { name: ai_generated, label: "AI-assisted draft", widget: boolean, default: false, required: false }
+      - name: source_urls
+        label: "Source URLs (for news-based posts)"
+        widget: list
+        required: false
+        field: { name: url, label: URL, widget: string }
+      - { name: body, label: "Article body", widget: markdown }
