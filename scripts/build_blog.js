@@ -16,7 +16,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://houstonhometechhelp.com';
 const BUSINESS_NAME = 'Houston Home Tech Help';
 const OWNER_NAME = 'Yosef';
-const PHONE_DISPLAY = '(713) 555-0100';
+const PHONE_DISPLAY = '(713) 955-7217';
 const SHARE_IMAGE = 'assets/og-image.png';
 
 const CONTENT_DIR = path.join(ROOT, 'content', 'blog');
