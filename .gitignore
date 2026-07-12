@@ -2,7 +2,8 @@
 node_modules/
 
 # Generated blog output (rendered from content/blog/*.md by scripts/build_blog.js)
-blog/
+# Leading slash anchors to repo root so this does NOT also ignore content/blog/
+/blog/
 
 # OS / editor cruft
 .DS_Store
