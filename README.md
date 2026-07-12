@@ -55,24 +55,26 @@ Connect the GitHub repo to a Cloudflare Pages project:
 
 The public site is 100% static either way. (No `CNAME`/`.nojekyll` — those are GitHub Pages artifacts and are not used here.)
 
-## ⚠️ Before you launch — replace these placeholders
+## Before you launch — status
 
-Search-and-replace across the repo:
+The launch placeholders have been replaced with real values across all pages:
 
-| Placeholder | Replace with | Where |
+| Item | Value | Status |
 |---|---|---|
-| `+17135550100` / `(713) 555-0100` | Real phone number | every page (`tel:` links, schema, footer) |
-| `hello@houstonhometechhelp.com` | Real inbox | every page + schema |
-| `G-XXXXXXXXXX` | GA4 Measurement ID | `<head>` of every page + templates |
-| `YOUR-WEB3FORMS-ACCESS-KEY` | [web3forms.com](https://web3forms.com) access key | `index.html`, `contact/index.html` |
-| Business hours (Mon–Fri 9–6, Sat 10–4) | Real hours | homepage schema, contact page, footers |
+| Phone | `(713) 955-7217` / `+17139557217` | ✅ every page + schema + blog build |
+| Email | `yosef@houstonhometechhelp.com` | ✅ every page + schema |
+| GA4 Measurement ID | `G-WLE58LCE62` | ✅ `<head>` of every page |
+| Web3Forms access key | configured | ✅ `index.html`, `contact/index.html` |
+| Business hours | Sun–Fri 9am–6pm, closed Sat | ✅ homepage schema, contact page, footers |
+| Social share card | `assets/og-image.png` (1200×630) | ✅ present |
+| Owner photo | `assets/yosef.png` | ✅ wired into About + homepage |
+| Testimonials | 3 real client reviews | ✅ + `Review`/`AggregateRating` JSON-LD |
 
-Also:
+Still to do before / after go-live:
 
-- **Add real images.** Drop in `assets/og-image.png` (1200×630 social share card) and a photo of Yosef at `assets/yosef.jpg`, then wire the photo into the About section / homepage portrait (currently a friendly placeholder). Until `og-image.png` exists, link previews will have no image.
-- **Replace the sample testimonials** on the homepage with real client reviews. They are clearly marked as samples. Once you have genuine reviews, you can also add `aggregateRating` + `review` to the homepage `LocalBusiness` JSON-LD — this was intentionally left out because fabricated review markup violates Google's guidelines.
 - **CMS setup (optional).** To use the visual editor at `/admin/`, edit `admin/config.yml` (`repo` + `base_url`), deploy the free [`sveltia-cms-auth`](https://github.com/sveltia/sveltia-cms-auth) Cloudflare Worker, and register a GitHub OAuth App.
-- **Validate** the JSON-LD with Google's [Rich Results Test](https://search.google.com/test/rich-results) once the domain is live.
+- **Validate** the JSON-LD with Google's [Rich Results Test](https://search.google.com/test/rich-results) once the domain is live — especially the homepage `Review`/`AggregateRating` markup.
+- **Create the `yosef@houstonhometechhelp.com` mailbox** on the mail host so the contact address receives mail.
 
 ## Notes
 
